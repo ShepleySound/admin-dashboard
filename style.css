@@ -1,0 +1,339 @@
+:root {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #dddddd;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 150px 40px 1fr / 220px 2fr 1fr;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar projects-head sidecards"
+    "sidebar content sidecards";
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #3b6b9b;
+  padding: 12px;
+  font-family: "coda", cursive;
+}
+
+.header {
+  grid-area: header;
+  width: 100%;
+  padding: 12px;
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 48px 0px;
+  padding: 0px 6px;
+}
+
+.sidebar-head-logo.material-icons {
+  font-size: 1.8rem;
+  margin: 0px 18px 0px 0px;
+}
+
+.sidebar-head-text {
+  font-size: 1.2rem;
+}
+
+.sidebar-head-logo.material-icons,
+.sidebar-head-text {
+  color: #d4c0af;
+}
+
+.sidebar-head-text {
+  font-weight: bold;
+}
+
+.sidebar-option-list {
+  margin: 0px 0px 48px 0px;
+  padding: 0;
+}
+
+.sidebar-option {
+  list-style: none;
+  display: flex;
+  flex: 1;
+  padding: 0px 6px;
+  margin: 12px 0px;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.sidebar-option:hover {
+  color: #dddddd;
+  background-color: #ffffff10;
+  border-radius: 8px;
+}
+
+.option-icon.material-icons,
+.option-text {
+  font-size: 1.2rem;
+  margin: 6px 0px;
+}
+
+.option-icon.material-icons {
+  margin: 0px 18px 0px 0px;
+  width: 1.8rem;
+}
+
+.searchbar-container {
+  display: flex;
+  width: 100%;
+  grid-area: searchbar;
+}
+
+.searchbar {
+  width: 100%;
+  margin: 0px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #dddddd;
+}
+
+.alert-button {
+  grid-area: alert;
+}
+
+.user-profile-name {
+  grid-area: upn;
+  font-weight: bold;
+}
+
+.user-profile-picture {
+  grid-area: upp;
+  width: 2rem;
+  opacity: 80%;
+}
+
+.user-profile-button {
+  grid-area: upb;
+  width: 3rem;
+  opacity: 80%;
+}
+
+.hello-text {
+  grid-area: hello;
+  font-size: 0.95rem;
+  align-self: flex-end;
+}
+
+.user-full-name {
+  grid-area: ufn;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#header-new {
+  grid-area: new;
+}
+
+#header-upload {
+  grid-area: upload;
+}
+
+#header-share {
+  grid-area: share;
+}
+
+.header-button {
+  background-color: #75b0eb;
+  width: 80%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 8px 4px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0px 1px 3px #aaaaaa;
+}
+
+.header {
+  display: grid;
+  align-items: center;
+  background-color: #ffffff;
+  grid-template: 1fr 1fr 1fr 1fr / 60px 2fr 4fr 3fr repeat(6, minmax(50px, 1fr));
+  grid-template-areas:
+    "searchbar searchbar searchbar searchbar . alert upp upn upn upn"
+    ". . . . . . . . . ."
+    "upb hello . . new new upload upload share share"
+    "upb ufn ufn ufn new new upload upload share share";
+  box-shadow: 0px 1px 3px #646464;
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / repeat(10, 1fr);
+    grid-template-areas:
+      "searchbar searchbar searchbar searchbar . alert upp upn upn upn"
+      ". . . . . . . . . . "
+      "upb hello hello . . . . . . ."
+      "upb ufn ufn ufn ufn ufn ufn ufn ufn ufn"
+      ". . . . . . . . . ."
+      ". new new new upload upload upload share share share";
+  }
+}
+
+.projects-head {
+  grid-area: projects-head;
+  padding: 12px 12px 0px 12px;
+  margin: 0px;
+  font-size: 1.5rem;
+}
+
+.project-cards-container {
+  display: grid;
+  grid-area: content;
+  width: 100%;
+  gap: 36px;
+  grid-template: repeat(auto-fit, minmax(100px, 1fr)) / repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    );
+  padding: 12px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  border-left: 6px solid #dab571;
+  box-shadow: 1px 1px 4px #bbbbbb;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-header {
+  font-weight: bold;
+}
+
+.project-card-info {
+  overflow: auto;
+  color: #404040;
+  font-size: 0.9rem;
+}
+
+.project-card-info::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-card-info::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+.project-card-info:hover.project-card-info::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 4px;
+}
+
+.card-button-container {
+  display: flex;
+  margin-top: auto;
+  margin-left: auto;
+  padding: 8px;
+}
+
+.card-button {
+  text-decoration: none;
+  color: #121212;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0px 8px;
+}
+
+.sidecards-container {
+  grid-area: sidecards;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.announcements-head,
+.trending-head {
+  margin: 0px;
+  padding: 0px 0px 12px 0px;
+  font-size: 1.5rem;
+}
+
+.announcements-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 1px 1px 4px #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 12px 0px;
+}
+
+.announcement-title {
+  font-weight: bold;
+}
+
+.announcement-info {
+  color: #404040;
+}
+
+hr {
+  border: 1px solid #00000020;
+  width: 100%;
+}
+
+.trending-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 1px 1px 4px #bbbbbb;
+  display: flex;
+  flex-direction: column;
+}
+
+.trend-container {
+  display: grid;
+  margin: 0px 0px 18px 0px;
+  grid-template: 20px 2fr / 50px 2fr;
+  grid-template-areas:
+    "tp tn"
+    "tp tt";
+}
+
+.trend-picture {
+  grid-area: tp;
+  width: 36px;
+}
+
+.trend-name {
+  grid-area: tn;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.trend-tagline {
+  grid-area: tt;
+  font-size: 0.8rem;
+  color: #808080;
+}
